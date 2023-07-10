@@ -1,5 +1,6 @@
 ﻿using ClosedXML.Excel;
 using DocumentFormat.OpenXml.Spreadsheet;
+using iTextSharp.text.pdf;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -8,6 +9,8 @@ using System.Security.Claims;
 using TicketManager.Service.Implementation;
 using TicketManager.Service.Interface;
 using TicketManger.Domain.DomainModels;
+using iTextSharp.text;
+using System.IO;
 
 namespace TicketManager.Web.Controllers
 {
@@ -40,6 +43,45 @@ namespace TicketManager.Web.Controllers
             _orderService.Create(order);
             _shoppingCartService.ClearShoppingCart(userId);
             return RedirectToAction("Index", "Orders");
+        }
+
+        public IActionResult ExportPdf(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var order = _orderService.Get(id.Value);
+            if (order == null)
+            {
+                return NotFound();
+            }
+
+            Document document = new Document();
+
+            using (MemoryStream memoryStream = new MemoryStream())
+            {
+                PdfWriter writer = PdfWriter.GetInstance(document, Response.Body);
+
+                document.Open();
+
+                document.Add(new Paragraph("Order ID: " + order.Id.ToString()));
+                document.Add(new Paragraph("Movie Name: " + order.Ticket.Name.ToString()));
+                document.Add(new Paragraph("Movie Genre: " + order.Ticket.Genre.ToString()));
+                document.Add(new Paragraph("Quantity: " + order.Quantity.ToString()));
+                document.Add(new Paragraph("Total Price: " + order.getTotalPrice().ToString()));
+
+                document.Close();
+
+                byte[] bytes = memoryStream.ToArray();
+
+                string contentType = "application/pdf";
+                string fileName = "example.pdf";
+
+                return File(bytes, contentType, fileName);
+            }
+         
         }
 
         [HttpGet]

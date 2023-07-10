@@ -25,6 +25,11 @@ namespace TicketManager.Service.Implementation
             _orderRepository.Insert(order);
         }
 
+        public Order Get(Guid id)
+        {
+            return _orderRepo.Get(id);
+        }
+
         public List<Order> GetAll(Guid? userId)
         {
             return _orderRepo.GetAll(userId);

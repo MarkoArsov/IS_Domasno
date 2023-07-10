@@ -12,8 +12,8 @@ using TicketManager.Repository;
 namespace TicketManager.Repository.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230709172846_my_migration_1")]
-    partial class my_migration_1
+    [Migration("20230710170706_m1")]
+    partial class m1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

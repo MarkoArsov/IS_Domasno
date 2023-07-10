@@ -1,5 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using ClosedXML.Excel;
+using DocumentFormat.OpenXml.Spreadsheet;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
@@ -11,17 +14,60 @@ namespace TicketManager.Web.Controllers
     public class TicketsController : Controller
     {
         private readonly ITicketService _ticketService;
+        private readonly UserManager<IdentityUser> _userManager;
 
-        public TicketsController(ITicketService ticketService)
+        public TicketsController(ITicketService ticketService, UserManager<IdentityUser> userManager)
         {
             _ticketService = ticketService;
+            _userManager = userManager;
         }
 
+        [HttpGet]
+        public IActionResult Export()
+        {
+            string fileName = "Tickets.xlsx";
+            string contentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+
+            using (var workbook = new XLWorkbook())
+            {
+                IXLWorksheet worksheet = workbook.Worksheets.Add("All Orders");
+                worksheet.Cell(1, 1).Value = "Name";
+                worksheet.Cell(1, 2).Value = "Genre";
+                worksheet.Cell(1, 3).Value = "Price";
+                worksheet.Cell(1, 4).Value = "Date";
+
+                List<Ticket> tickets = _ticketService.GetAllTickets();
+
+                for (int i = 0; i < tickets.Count; i++)
+                {
+                    Ticket ticket = tickets[i];
+                    worksheet.Cell(i + 2, 1).Value = ticket.Name.ToString();
+                    worksheet.Cell(i + 2, 2).Value = ticket.Genre.ToString();
+                    worksheet.Cell(i + 2, 3).Value = ticket.Price.ToString();
+                    worksheet.Cell(i + 2, 4).Value = ticket.DateTime.ToString();
+                }
+
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+
+                    return File(content, contentType, fileName);
+                }
+
+            }
+        }
 
         // GET: Tickets
         public IActionResult Index()
         {
             return View(this._ticketService.GetAllTickets());
+        }
+
+        [HttpPost]
+        public IActionResult Filter(DateTime filterDate)
+        {
+            return View("~/Views/Tickets/Index.cshtml", _ticketService.GetAllTickets().Where(t => t.DateTime.Day.Equals(filterDate.Day) && t.DateTime.Month.Equals(filterDate.Month)).ToList());
         }
 
 
@@ -59,15 +105,11 @@ namespace TicketManager.Web.Controllers
         }
 
         [Authorize]
-        // GET: Tickets/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Tickets/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         public async Task<IActionResult> Create([Bind("Id,Name,Genre,Price,DateTime,ShoppingCarts")] Ticket ticket)
         {
@@ -83,7 +125,6 @@ namespace TicketManager.Web.Controllers
             return View(ticket);
         }
 
-        // GET: Tickets/Edit/5
         [Authorize]
         public IActionResult Edit(Guid? id)
         {
@@ -100,9 +141,6 @@ namespace TicketManager.Web.Controllers
             return View(ticket);
         }
 
-        // POST: Tickets/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize]
@@ -135,7 +173,6 @@ namespace TicketManager.Web.Controllers
             return View(ticket);
         }
 
-        // GET: Tickets/Delete/5
         [Authorize]
         public IActionResult Delete(Guid? id)
         {
@@ -153,7 +190,6 @@ namespace TicketManager.Web.Controllers
             return View(ticket);
         }
 
-        // POST: Tickets/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         [Authorize]

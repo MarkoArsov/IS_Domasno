@@ -14,5 +14,7 @@ namespace TicketManager.Service.Interface
 
         List<Order> GetAll(Guid? userId);
 
+        Order Get(Guid id);
+
     }
 }

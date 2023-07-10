@@ -22,6 +22,11 @@ namespace TicketManager.Repository.Implementation
             entities = context.Set<Order>();
         }
 
+        public Order Get(Guid id)
+        {
+            return entities.Include(x=>x.Ticket).Single(x => x.Id == id);
+        }
+
         public List<Order> GetAll(Guid? userId)
         {
             return entities.Include(x => x.Ticket).Where(x => x.UserId == userId).ToList();

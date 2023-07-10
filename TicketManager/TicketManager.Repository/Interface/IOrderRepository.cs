@@ -11,5 +11,7 @@ namespace TicketManager.Repository.Interface
     public interface IOrderRepository
     {
         List<Order> GetAll(Guid? userId);
+
+        Order Get(Guid id);
     }
 }

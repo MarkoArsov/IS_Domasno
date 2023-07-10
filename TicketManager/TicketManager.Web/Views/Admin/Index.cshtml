@@ -1,0 +1,33 @@
+﻿@using Microsoft.AspNetCore.Identity;
+@model IEnumerable<IdentityUser>
+
+@inject UserManager<IdentityUser> UserManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h1>Users</h1>
+<hr />
+<form method="post" asp-action="Assign" asp-controller="Admin">
+    <div class="form-group">
+        <label for="email">Add Admin to user by email:</label>
+        <input type="text" id="email" name="email" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Assign Admin Role</button>
+</form>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+            <tr>
+                <td>@user.Email</td> 
+            </tr>
+        }
+    </tbody>
+</table>

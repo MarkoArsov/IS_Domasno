@@ -4,9 +4,25 @@
     ViewData["Title"] = "Index";
 }
 
+<h1>TICKETS</h1>
+<hr />
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create">Create New Ticket</a>
 </p>
+<hr />
+<p>
+    <a asp-action="Export">Export All Tickets to Excel</a>
+</p>
+<hr />
+<h3>Filter Tickets</h3>
+<form method="post" action="/Tickets/Filter">
+    <div class="form-group">
+        <label for="filterDate">Filter Date:</label>
+        <input type="date" class="form-control" id="filterDate" name="filterDate" value="" />
+    </div>
+    <button type="submit" class="btn btn-primary">Filter</button>
+</form>
+<hr />
 <table class="table">
     <thead>
         <tr>
