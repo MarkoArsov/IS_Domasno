@@ -1,0 +1,17 @@
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Service\bin\Debug\net6.0\TicketManager.Service.deps.json
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Service\bin\Debug\net6.0\TicketManager.Service.dll
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Service\bin\Debug\net6.0\TicketManager.Service.pdb
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Service\obj\Debug\net6.0\TicketManager.Service.csproj.AssemblyReference.cache
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Service\obj\Debug\net6.0\TicketManager.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Service\obj\Debug\net6.0\TicketManager.Service.AssemblyInfoInputs.cache
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Service\obj\Debug\net6.0\TicketManager.Service.AssemblyInfo.cs
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Service\obj\Debug\net6.0\TicketManager.Service.csproj.CoreCompileInputs.cache
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Service\obj\Debug\net6.0\TicketManager.Service.dll
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Service\obj\Debug\net6.0\refint\TicketManager.Service.dll
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Service\obj\Debug\net6.0\TicketManager.Service.pdb
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Service\obj\Debug\net6.0\ref\TicketManager.Service.dll
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Service\bin\Debug\net6.0\TicketManager.Repository.dll
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Service\bin\Debug\net6.0\TicketManger.Domain.dll
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Service\bin\Debug\net6.0\TicketManager.Repository.pdb
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Service\bin\Debug\net6.0\TicketManger.Domain.pdb
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Service\obj\Debug\net6.0\TicketManager.Service.csproj.CopyComplete

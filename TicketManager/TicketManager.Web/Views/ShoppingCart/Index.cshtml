@@ -1,0 +1,29 @@
+﻿@model TicketManger.Domain.DomainModels.ShoppingCart
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <dl class="row">
+        <h1>Name: @Model.Ticket.Name</h1>
+    </dl>
+    <dl class="row">
+        <h1>Genre: @Model.Ticket.Genre</h1>
+    </dl>
+    <dl class="row">
+        <h1>Price: @Model.Ticket.Price</h1>
+    </dl>
+    <dl class="row">
+        <h1>When: @Model.Ticket.DateTime</h1>
+    </dl>
+
+    <form method="post" action="/Orders/Create">
+        <div class="form-group">
+            <label for="quantity">Quantity:</label>
+            <input type="number" class="form-control" id="quantity" name="quantity" value="1" />
+        </div>
+        <button type="submit" class="btn btn-primary">Create Order</button>
+    </form>
+</div>
+

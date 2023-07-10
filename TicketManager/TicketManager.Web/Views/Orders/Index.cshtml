@@ -1,0 +1,48 @@
+﻿@model IEnumerable<TicketManger.Domain.DomainModels.Order>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<p>
+    <a asp-action="Export">Export</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Ticket.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ticket.Genre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Ticket.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+  
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ticket.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ticket.Genre)
+                </td>
+                <td>
+                    @item.getTotalPrice()
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

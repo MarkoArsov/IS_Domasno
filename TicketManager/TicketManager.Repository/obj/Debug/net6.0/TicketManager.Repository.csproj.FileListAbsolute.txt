@@ -1,0 +1,15 @@
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Repository\bin\Debug\net6.0\TicketManager.Repository.deps.json
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Repository\bin\Debug\net6.0\TicketManager.Repository.dll
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Repository\bin\Debug\net6.0\TicketManager.Repository.pdb
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Repository\obj\Debug\net6.0\TicketManager.Repository.csproj.AssemblyReference.cache
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Repository\obj\Debug\net6.0\TicketManager.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Repository\obj\Debug\net6.0\TicketManager.Repository.AssemblyInfoInputs.cache
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Repository\obj\Debug\net6.0\TicketManager.Repository.AssemblyInfo.cs
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Repository\obj\Debug\net6.0\TicketManager.Repository.csproj.CoreCompileInputs.cache
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Repository\obj\Debug\net6.0\TicketManager.Repository.dll
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Repository\obj\Debug\net6.0\refint\TicketManager.Repository.dll
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Repository\obj\Debug\net6.0\TicketManager.Repository.pdb
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Repository\obj\Debug\net6.0\ref\TicketManager.Repository.dll
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Repository\bin\Debug\net6.0\TicketManger.Domain.dll
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Repository\bin\Debug\net6.0\TicketManger.Domain.pdb
+C:\Users\arsov\Desktop\Code\School\IS\TicketManager\TicketManager.Repository\obj\Debug\net6.0\TicketManager.Repository.csproj.CopyComplete
